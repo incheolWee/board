@@ -1,18 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>update</title>
-</head>
-<body>
-<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>update</title>
 </head>
 <body>
-<form action="/board/update" method="post" name="updateForm">
+<form th:action="@{/board/update}" method="post" name="updateForm">
     <input type="hidden" name="id" th:value="${boardUpdate.id}">
     writer: <input type="text" name="boardWriter" th:value="${boardUpdate.boardWriter}" readonly> <br>
     pass: <input type="text" name="boardPass" id="boardPass"> <br>
@@ -32,6 +25,5 @@
         }
     }
 </script>
-</body>
 </body>
 </html>
