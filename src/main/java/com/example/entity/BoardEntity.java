@@ -5,13 +5,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 //DB의 테이블 역할을 하는 클래스
 @Entity
 @Getter
 @Setter
 @Table(name = "board_table")
-public class BoardEntity extends  BaseEntity{
+public class BoardEntity {
     @Id // pk 컬럼 지정, 필수
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment
     private Long id;
@@ -31,6 +32,11 @@ public class BoardEntity extends  BaseEntity{
     @Column
     private int boardHits;
 
+    @Column(updatable = false)
+    private LocalDateTime createdTime = LocalDateTime.now();
+
+    @Column(insertable = false)
+    private LocalDateTime updatedTime = LocalDateTime.now();
     public static BoardEntity toSaveEntity (BoardDTO boardDTO){
         BoardEntity boardEntity = new BoardEntity();
         boardEntity.setBoardWriter(boardDTO.getBoardWriter());
@@ -48,6 +54,7 @@ public class BoardEntity extends  BaseEntity{
         boardEntity.setBoardTitle(boardDTO.getBoardTitle());
         boardEntity.setBoardContents(boardDTO.getBoardContents());
         boardEntity.setBoardHits(boardDTO.getBoardHits());
+
         return boardEntity;
     }
 }
