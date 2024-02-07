@@ -1,5 +1,7 @@
-package com.example.myapp;
+package board;
 
+import com.example.Name;
+import com.example.NameRepository;
 import com.example.SpringMvcTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

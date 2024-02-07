@@ -26,15 +26,15 @@
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="com.example.myapp"/>
+        <property name="packagesToScan" value="com.example"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
         </property>
         <property name="jpaProperties">
             <props>
-                <prop key="hibernate.dialect">${spring.jpa.hibernate.dialect}</prop>
+<!--                <prop key="hibernate.dialect">${spring.jpa.hibernate.dialect}</prop>-->
                 <prop key="hibernate.hbm2ddl.auto">${spring.jpa.hibernate.ddl-auto}</prop>
-                <prop key="hibernate.naming.physical-strategy">${spring.jpa.hibernate.naming.physical-strategy}</prop>
+<!--                <prop key="hibernate.naming.physical-strategy">${spring.jpa.hibernate.naming.physical-strategy}</prop>-->
             </props>
         </property>
     </bean>

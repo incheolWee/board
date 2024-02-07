@@ -1,4 +1,4 @@
-package com.example.myapp;
+package com.example;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        return "home";
+        return "index";
     }
 
     @PostMapping("/form")
